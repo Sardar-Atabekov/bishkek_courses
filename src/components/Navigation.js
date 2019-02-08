@@ -48,7 +48,7 @@ class Navigation extends Component {
                                 <MenuItemGroup style={{ width: 250}} className="sub-categories">
                                     {one.subcategories.map((sub)=>{
                                         return(
-                                            <Menu.Item className="sub-titles" key={sub.id}><span className="sub-title">{sub.title}</span></Menu.Item>
+                                            <Menu.Item className="sub-titles" key={sub.id}><a href={sub.title} className="sub-title">{sub.title}</a></Menu.Item>
                                         );
                                     })}
                                 </MenuItemGroup>
