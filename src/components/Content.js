@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './css/Content.css'
 
-const API = 'http://46.101.146.101:8081/universities/';
+const API = 'http://46.101.146.101:8081/courses/';
 
 class Content extends Component {
     constructor(props) {
@@ -9,8 +9,6 @@ class Content extends Component {
 
         this.state = {
             data: [],
-            isLoading: false,
-            error: null,
         };
     }
 
@@ -30,22 +28,12 @@ class Content extends Component {
     }
 
     render() {
-        const { data, isLoading, error } = this.state;
-
-        if (isLoading) {
-            return <p className='SMS'>Loading ...</p>;
-        }
-
-        if (error) {
-            return <p className='SMS'>{error.message}</p>;
-        }
-
+        const { data } = this.state;
         return (
             <div className="main">
                 <div id='container'>
                     {data.map(data  =>
                         <div className="content" key={data.id}>
-                            <img src={data.main_image_url} className="images" />
                             <h3 className="title">{data.title}</h3>
                             <div className="description_content">
                                 <p className="description">{data.description} </p>

@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 import './css/Navigation.css';
+import  Content from './Content';
 import 'antd/lib/menu/style/css';
-import { Menu } from 'antd';
+import { Menu, Icon } from 'antd';
 import { Router, Route, Switch } from 'react-router';
 import { Link } from 'react-router-dom'
+
 
 const API = "http://46.101.146.101:8081/categories-subcategories/";
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
-class Navigation extends Component {
-
+class Navigations extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             titles: [
             ]
         };
     }
-
     componentDidMount() {
         fetch(API, {mode: 'cors'}, {method: 'get'})
             .then(response => response.json())
@@ -27,6 +28,7 @@ class Navigation extends Component {
 
     render() {
         let {titles} = this.state;
+        console.log(titles);
         return (
             <div style={{ width: 256 }} className="menu">
                 <h1 className="logo">BishkekCourses</h1>
@@ -45,10 +47,9 @@ class Navigation extends Component {
                         );
                     })}
                 </Menu>
-                <a href={'/'}>University</a>
             </div>
         )
-    }
 
+    }
 }
-export default Navigation;
+export default Navigations;
