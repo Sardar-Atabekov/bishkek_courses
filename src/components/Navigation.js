@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './css/Navigation.css';
 import 'antd/lib/menu/style/css';
 import { Menu } from 'antd';
-import { Router, Route, Switch } from 'react-router';
-import { Link } from 'react-router-dom'
+import {BrowserRouter, Link, Route, Switch} from 'react-router-dom'
+import Courses from "./Courses";
 
 const API = "http://46.101.146.101:8081/categories-subcategories/";
 const SubMenu = Menu.SubMenu;
@@ -33,11 +33,11 @@ class Navigation extends Component {
                 <Menu mode="vertical" className="all-categories" style={{ width: 257,  background:6849}}>
                     {titles.map((one)=>{
                         return(
-                            <SubMenu className="titles" key={one.id} title={<Link to={{pathname: /${title}/, state: { courses: one.title}}} className="one-title">{one.title}</Link>} >
+                            <SubMenu className="titles" key={one.id} title={<Link to={{pathname: `/${one.title}/`, state: { courses: one.title}}} className="one-title">{one.title}</Link>} >
                                 <MenuItemGroup style={{ width: 250}} className="sub-categories">
                                     {one.subcategories.map((sub)=>{
                                         return(
-                                            <Menu.Item className="sub-titles" key={sub.id}><Link to={{pathname: /${ sub.title }/, state: { courses: sub.title}}} key={sub.id} className="sub-title">{sub.title}</Link></Menu.Item>
+                                            <Menu.Item className="sub-titles" key={sub.id}><Link to={{pathname: `/${one.title}/${ sub.title }/`, state: { courses: sub.title}}} key={sub.id} className="sub-title">{sub.title}</Link></Menu.Item>
                                         );
                                     })}
                                 </MenuItemGroup>
@@ -46,7 +46,15 @@ class Navigation extends Component {
                     })}
                 </Menu>
                 <a href={'/'}>University</a>
+
+                <BrowserRouter>
+                    <Switch>
+                        <Route path='' exact component={}/>
+                        <Route path='courses' component={Courses} />
+                    </Switch>
+                </BrowserRouter>
             </div>
+
         )
     }
 
