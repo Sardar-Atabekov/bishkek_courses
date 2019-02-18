@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 
-const API = 'http://46.101.146.101:8081/courses/';
+const API = 'http://46.101.146.101:8081/courses/13';
 
 class About_course extends Component {
     constructor(props) {
@@ -15,30 +15,20 @@ class About_course extends Component {
     componentDidMount() {
         this.setState({ isLoading: true });
         fetch(API)
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Что-то пошло не так...');
-                }
-            })
-            .then(responseJSON => {this.setState({ data: responseJSON, isLoading: false })})
-            .catch(error => this.setState({ error, isLoading: false }));
+            .then(response => response.json())
+            .then(json => this.setState({data: json}))
     }
     render() {
-        const { data, isLoading, error } = this.state;
-        if (isLoading) {
-            return <p className='SMS'>Loading ...</p>;
-        }
-        if (error) {
-            return <p className='SMS'>{error.message}</p>;
-        }
+        const { data } = this.state;
 
+        console.log(data);
         return (
-            <div id='container' className='main'>
-                <div>works</div>
+            <div>
+                <div key={data.id}>
+                    <h1>work</h1>
+                    <h1>{data.id}</h1>
+                </div>
             </div>
-
         )
     }
 }

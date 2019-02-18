@@ -45,7 +45,6 @@ class Courses extends Component {
                         <h3 className="title">{data.title}</h3>
                         <div className="description_content">
                             <p className="description">{data.description} </p>
-
                         </div>
                     </div>
                 )}
