@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
 import './css/Navigation.css';
 import 'antd/lib/menu/style/css';
 import { Menu } from 'antd';
-import {BrowserRouter, Link, Route, Switch} from 'react-router-dom'
+import Universities from './Universities';
 import Courses from "./Courses";
 
 const API = "http://46.101.146.101:8081/categories-subcategories/";
@@ -20,24 +21,27 @@ class Navigation extends Component {
     }
 
     componentDidMount() {
-        fetch(API, {mode: 'cors'}, {method: 'get'})
+        fetch(API)
             .then(response => response.json())
             .then(json => this.setState({titles: json}))
     }
 
     render() {
         let {titles} = this.state;
+        console.log(titles);
         return (
+            <Router>
+            <div>
             <div style={{ width: 256 }} className="menu">
                 <h1 className="logo">BishkekCourses</h1>
                 <Menu mode="vertical" className="all-categories" style={{ width: 257,  background:6849}}>
-                    {titles.map((one)=>{
+                    {titles.map((one, id)=>{
                         return(
-                            <SubMenu className="titles" key={one.id} title={<Link to={{pathname: `/${one.title}/`, state: { courses: one.title}}} className="one-title">{one.title}</Link>} >
+                            <SubMenu className="titles" key={one.id} title={<Link to={{pathname: `/courses/${one.title}/`, state: { courses: one.title}}} className="one-title">{one.title}</Link>} >
                                 <MenuItemGroup style={{ width: 250}} className="sub-categories">
                                     {one.subcategories.map((sub)=>{
                                         return(
-                                            <Menu.Item className="sub-titles" key={sub.id}><Link to={{pathname: `/${one.title}/${ sub.title }/`, state: { courses: sub.title}}} key={sub.id} className="sub-title">{sub.title}</Link></Menu.Item>
+                                            <Menu.Item className="sub-titles" key={sub.id}><Link to={{pathname: `/courses/${one.title}/${ sub.title }/`, state: { courses: sub.title}}} key={sub.id} className="sub-title">{sub.title}</Link></Menu.Item>
                                         );
                                     })}
                                 </MenuItemGroup>
@@ -45,18 +49,12 @@ class Navigation extends Component {
                         );
                     })}
                 </Menu>
-                <a href={'/'}>University</a>
-
-                <BrowserRouter>
-                    <Switch>
-                        <Route path='' exact component={}/>
-                        <Route path='courses' component={Courses} />
-                    </Switch>
-                </BrowserRouter>
+                <Link to={'/universities'}>Universities</Link>
             </div>
-
+                <Route path='/universities' component={Universities}/>
+            </div>
+            </Router>
         )
     }
-
 }
 export default Navigation;

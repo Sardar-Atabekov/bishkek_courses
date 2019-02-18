@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import './css/Content.css'
 
-const API = 'http://46.101.146.101:8081/courses/';
+const API = 'http://46.101.146.101:8081/universities/';
 
 class Content extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             data: [],
+            isLoading: false,
+            error: null,
         };
     }
-
     componentDidMount() {
         this.setState({ isLoading: true });
-
         fetch(API)
             .then(response => {
                 if (response.ok) {
@@ -28,23 +27,28 @@ class Content extends Component {
     }
 
     render() {
-        const { data } = this.state;
-        return (
-            <div className="main">
-                <div id='container'>
-                    {data.map(data  =>
-                        <div className="content" key={data.id}>
-                            <h3 className="title">{data.title}</h3>
-                            <div className="description_content">
-                                <p className="description">{data.description} </p>
-                            </div>
-                        </div>
+        const { data, isLoading, error } = this.state;
+        if (isLoading) {
+            return <p className='SMS'>Loading ...</p>;
+        }
+        if (error) {
+            return <p className='SMS'>{error.message}</p>;
+        }
 
-                    )}
-                </div>
+        return (
+            <div className='container'>
+                {data.map(data  =>
+                    <div className="content" key={data.id}>
+                        {/*<img src={data.main_image_url} className="images" />*/}
+                        <h3 className="title">{data.title}</h3>
+                        <div className="description_content">
+                            <p className="description">{data.description} </p>
+                        </div>
+                    </div>
+                )}
             </div>
-        );
+        )
     }
 }
-const Container = document.querySelector('main');
+
 export default Content;

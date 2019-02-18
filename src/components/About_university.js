@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
-import './css/Content.css'
-const API = 'http://46.101.146.101:8081/courses/';
 
+const API = 'http://46.101.146.101:8081/universities/';
 
-class Courses extends Component {
+class About_university extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -20,10 +18,10 @@ class Courses extends Component {
                 if (response.ok) {
                     return response.json();
                 } else {
-                    throw new Error('Что-то пошла не так...');
+                    throw new Error('Что-то пошло не так...');
                 }
             })
-            .then(responseJSON => {this.setState({ data: responseJSON.results, isLoading: false })})
+            .then(responseJSON => {this.setState({ data: responseJSON, isLoading: false })})
             .catch(error => this.setState({ error, isLoading: false }));
     }
     render() {
@@ -34,21 +32,18 @@ class Courses extends Component {
         if (error) {
             return <p className='SMS'>{error.message}</p>;
         }
-        console.log(data);
+
         return (
             <div id='container' className='main'>
-                {data.map((data)  =>
+                {data.map(data  =>
                     <div className="content" key={data.id}>
-                        <Link to={`/courses/${data.title}`}> <img src={data.main_image_url} className="images" alt='course' /></Link>
-                        <h3 className="title">{data.title}</h3>
-                        <div className="description_content">
-                            <p className="description">{data.description} </p>
-                        </div>
+                        <img src={data.main_image_url} className="images" />
                     </div>
                 )}
             </div>
-        );
+
+        )
     }
 }
 
-export default Courses;
+export default About_university;
