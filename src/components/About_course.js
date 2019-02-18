@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 const API = 'http://46.101.146.101:8081/courses/';
 
-class About_courses extends Component {
+class About_course extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -36,16 +36,11 @@ class About_courses extends Component {
 
         return (
             <div id='container' className='main'>
-                {data.map(data  =>
-                    <div className="content" key={data.id}>
-                        <Link to={{pathname: /${data.id}, state: { courseId: data.id}
-                        }}><h1>{data.id}</h1></Link>
-                    </div>
-                )}
+                <div>works</div>
             </div>
 
         )
     }
 }
 
-export default About_courses;
+export default About_course;

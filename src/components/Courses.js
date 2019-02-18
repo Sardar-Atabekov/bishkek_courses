@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 import './css/Content.css'
+import Universities from "./Universities";
+import About_course from "./About_course";
 const API = 'http://46.101.146.101:8081/courses/';
 
 
@@ -39,7 +41,7 @@ class Courses extends Component {
             <div id='container' className='main'>
                 {data.map((data)  =>
                     <div className="content" key={data.id}>
-                        <Link to={`/courses/${data.title}`}> <img src={data.main_image_url} className="images" alt='course' /></Link>
+                        <Link to={{pathname: `courses/${data.id}`, state: { courseId: data.id} }}> <img src={data.main_image_url} className="images" alt='course' /></Link>
                         <h3 className="title">{data.title}</h3>
                         <div className="description_content">
                             <p className="description">{data.description} </p>
