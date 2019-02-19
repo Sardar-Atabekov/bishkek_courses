@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
-const API = 'http://46.101.146.101:8081/universities/';
-
-class About_university extends Component {
+class AboutUniversity extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,6 +11,7 @@ class About_university extends Component {
     }
     componentDidMount() {
         this.setState({ isLoading: true });
+        const API = `http://46.101.146.101:8081/universities/${this.props.match.params.id}/`;
         fetch(API)
             .then(response => {
                 if (response.ok) {
@@ -25,25 +24,15 @@ class About_university extends Component {
             .catch(error => this.setState({ error, isLoading: false }));
     }
     render() {
-        const { data, isLoading, error } = this.state;
-        if (isLoading) {
-            return <p className='SMS'>Loading ...</p>;
-        }
-        if (error) {
-            return <p className='SMS'>{error.message}</p>;
-        }
+        const { data } = this.state;
 
         return (
-            <div id='container' className='main'>
-                {data.map(data  =>
-                    <div className="content" key={data.id}>
-                        <img src={data.main_image_url} className="images" />
-                    </div>
-                )}
+            <div>
+                <h1>Univer</h1>
             </div>
 
         )
     }
 }
 
-export default About_university;
+export default AboutUniversity;

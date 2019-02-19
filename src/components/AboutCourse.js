@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 
-const API = 'http://46.101.146.101:8081/courses/';
-
-class About_course extends Component {
+class AboutCourse extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -14,6 +12,7 @@ class About_course extends Component {
     }
     componentDidMount() {
         this.setState({ isLoading: true });
+        const API = `http://46.101.146.101:8081/categories/${this.props.match.params.id}/`;
         fetch(API)
             .then(response => response.json())
             .then(json => this.setState({data: json}))
@@ -25,12 +24,10 @@ class About_course extends Component {
         return (
             <div>
                 <div key={data.id}>
-                    <h1>work</h1>
-                    <h1>{data.id}</h1>
+                    <h1>Course</h1>
                 </div>
             </div>
         )
     }
 }
-
-export default About_course;
+export default AboutCourse;

@@ -4,7 +4,6 @@ import './css/Navigation.css';
 import 'antd/lib/menu/style/css';
 import { Menu } from 'antd';
 import Universities from './Universities';
-import Courses from "./Courses";
 
 const API = "http://46.101.146.101:8081/categories-subcategories/";
 const SubMenu = Menu.SubMenu;
@@ -41,7 +40,7 @@ class Navigation extends Component {
                                 <MenuItemGroup style={{ width: 250}} className="sub-categories">
                                     {one.subcategories.map((sub)=>{
                                         return(
-                                            <Menu.Item className="sub-titles" key={sub.id}><Link to={{pathname: `/courses/${sub.id}/`}} key={sub.id} className="sub-title">{sub.title}</Link></Menu.Item>
+                                            <Menu.Item className="sub-titles" key={sub.id}><Link to={{pathname: `/subcategories/${sub.id}/`}} key={sub.id} className="sub-title">{sub.title}</Link></Menu.Item>
                                         );
                                     })}
                                 </MenuItemGroup>

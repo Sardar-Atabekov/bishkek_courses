@@ -3,9 +3,10 @@ import {Route, Switch} from "react-router-dom";
 import {BrowserRouter, Link} from 'react-router-dom';
 import Navigation from './components/Navigation';
 import University from "./components/Universities";
+import AboutUniversity from './components/AboutUniversity';
 import Courses from "./components/Courses";
 import Subcategories from './components/Subcategories';
-import About_university from "./components/About_university";
+import AboutCourse from "./components/AboutCourse";
 
 class App extends Component {
     render() {
@@ -13,10 +14,10 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Route path="/" component={Navigation} exact/>
-                    <Route path="/courses" component={Courses} />
-                    <Route path="/courses/:id" component={Courses} />
-                    <Route path="/courses/category/:id" component={Subcategories} />
-                    <Route path="/universities/:id" component={University} />
+                    <Route path="/courses/:id" component={AboutCourse} />
+                    <Route path="/subcategories/:id" component={Subcategories} />
+                    <Route path="/universities/" component={University} />
+                    <Route path="/universities/:id" component={AboutUniversity} exact/>
                 </div>
             </BrowserRouter>
         )
