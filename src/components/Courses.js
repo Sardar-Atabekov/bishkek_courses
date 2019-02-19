@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 import './css/Content.css'
-import Universities from "./Universities";
-import About_course from "./About_course";
-const API = 'http://46.101.146.101:8081/courses/';
-
+import Navigation from './Navigation';
 
 class Courses extends Component {
     constructor(props) {
@@ -17,6 +14,7 @@ class Courses extends Component {
     }
     componentDidMount() {
         this.setState({ isLoading: true });
+        const API = `http://46.101.146.101:8081/categories/${this.props.match.params.id}/`;
         fetch(API)
             .then(response => {
                 if (response.ok) {
@@ -28,6 +26,8 @@ class Courses extends Component {
             .then(responseJSON => {this.setState({ data: responseJSON.results, isLoading: false })})
             .catch(error => this.setState({ error, isLoading: false }));
     }
+
+
     render() {
         const { data, isLoading, error } = this.state;
         if (isLoading) {

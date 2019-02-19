@@ -4,7 +4,7 @@ import {BrowserRouter, Link} from 'react-router-dom';
 import Navigation from './components/Navigation';
 import University from "./components/Universities";
 import Courses from "./components/Courses";
-import About_course from './components/About_course';
+import Subcategories from './components/Subcategories';
 import About_university from "./components/About_university";
 
 class App extends Component {
@@ -13,9 +13,10 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Route path="/" component={Navigation} exact/>
-                    <Route path="/courses" component={Courses} exact/>
-                    <Route path="/courses/:id" component={About_course} exact/>
-                    <Route path="/universities/" component={About_university} exact/>
+                    <Route path="/courses" component={Courses} />
+                    <Route path="/courses/:id" component={Courses} />
+                    <Route path="/courses/category/:id" component={Subcategories} />
+                    <Route path="/universities/:id" component={University} />
                 </div>
             </BrowserRouter>
         )

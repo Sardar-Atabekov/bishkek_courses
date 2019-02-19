@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 
-const API = 'http://46.101.146.101:8081/courses/13';
+const API = 'http://46.101.146.101:8081/courses/';
 
 class About_course extends Component {
     constructor(props) {

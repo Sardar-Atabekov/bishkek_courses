@@ -35,13 +35,13 @@ class Navigation extends Component {
             <div style={{ width: 256 }} className="menu">
                 <h1 className="logo">BishkekCourses</h1>
                 <Menu mode="vertical" className="all-categories" style={{ width: 257,  background:6849}}>
-                    {titles.map((one, id)=>{
+                    {titles.map((one)=>{
                         return(
-                            <SubMenu className="titles" key={one.id} title={<Link to={{pathname: `/courses/${one.title}/`, state: { courses: one.title}}} className="one-title">{one.title}</Link>} >
+                            <SubMenu className="titles" key={one.id} title={<Link to={{pathname: `/courses/${one.id}/`}} className="one-title">{one.title}</Link>} >
                                 <MenuItemGroup style={{ width: 250}} className="sub-categories">
                                     {one.subcategories.map((sub)=>{
                                         return(
-                                            <Menu.Item className="sub-titles" key={sub.id}><Link to={{pathname: `/courses/${one.title}/${ sub.title }/`, state: { courses: sub.title}}} key={sub.id} className="sub-title">{sub.title}</Link></Menu.Item>
+                                            <Menu.Item className="sub-titles" key={sub.id}><Link to={{pathname: `/courses/${sub.id}/`}} key={sub.id} className="sub-title">{sub.title}</Link></Menu.Item>
                                         );
                                     })}
                                 </MenuItemGroup>
