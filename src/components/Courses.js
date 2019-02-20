@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './css/Content.css'
 
-
 class Courses extends Component {
     constructor(props) {
         super(props);
@@ -19,7 +18,6 @@ class Courses extends Component {
             .then(response => response.json())
             .then(json => this.setState({data: json}))
     }
-
 
     render() {
         const { data } = this.state;

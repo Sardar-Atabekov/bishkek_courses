@@ -27,7 +27,7 @@ class Universities extends Component {
             <div id='container' className='main'>
                 {data.map(data  =>
                     <div className="content" key={data.id}>
-                        <Link to={`/universities/${data.id}/`}><img src={data.main_image_url} className="images" /></Link>
+                        <Link to={`/university/${data.id}/`}><img src={data.main_image_url} className="images" /></Link>
                         <h3 className="title">{data.title}</h3>
                         <div className="description_content">
                             <p className="description">{data.description} </p>
