@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './css/Navigation.css';
 import 'antd/lib/menu/style/css';
 import { Menu } from 'antd';
-import Universities from './Universities';
 
 const API = "http://46.101.146.101:8081/categories-subcategories/";
 const SubMenu = Menu.SubMenu;
@@ -29,8 +28,6 @@ class Navigation extends Component {
         let {titles} = this.state;
         console.log(titles);
         return (
-            <Router>
-            <div>
             <div style={{ width: 256 }} className="menu">
                 <h1 className="logo">BishkekCourses</h1>
                 <Menu mode="vertical" className="all-categories" style={{ width: 257,  background:6849}}>
@@ -50,9 +47,6 @@ class Navigation extends Component {
                 </Menu>
                 <Link to={'/universities'}>Universities</Link>
             </div>
-                <Route path='/universities' component={Universities}/>
-            </div>
-            </Router>
         )
     }
 }

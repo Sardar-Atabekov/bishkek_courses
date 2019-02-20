@@ -14,10 +14,11 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Route path="/" component={Navigation} exact/>
+                    <Route path="/courses/" component={Courses} />
                     <Route path="/courses/:id" component={AboutCourse} />
                     <Route path="/subcategories/:id" component={Subcategories} />
                     <Route path="/universities/" component={University} />
-                    <Route path="/universities/:id" component={AboutUniversity} exact/>
+                    <Route path="/universities/:id" component={AboutUniversity} />
                 </div>
             </BrowserRouter>
         )

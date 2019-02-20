@@ -22,10 +22,8 @@ class AboutCourse extends Component {
 
         console.log(data);
         return (
-            <div>
-                <div key={data.id}>
-                    <h1>Course</h1>
-                </div>
+            <div id='container' className='main' key={data.id}>
+                <h1>{data.title}</h1>
             </div>
         )
     }

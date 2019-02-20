@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './css/Content.css'
-import Navigation from './Navigation';
+
 
 class Courses extends Component {
     constructor(props) {
@@ -29,7 +29,7 @@ class Courses extends Component {
             <div id='container' className='main' key={data.id}>
                 {data.map((data)  =>
                     <div className="content" key={data.id}>
-                        <Link to={{pathname: `courses/${data.id}`, state: { courseId: data.id} }}> <img src={data.main_image_url} className="images" alt='course' /></Link>
+                        <Link to={{pathname: `courses/${data.id}`, state: { courseId: data.id} }}> <img src={data.subcategory_image_url} className="images" alt='course' /></Link>
                         <h3 className="title">{data.title}</h3>
                         <div className="description_content">
                             <p className="description">{data.description} </p>

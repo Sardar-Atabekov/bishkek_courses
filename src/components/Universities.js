@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './css/Content.css'
-import {BrowserRouter as Router, Link, Route} from "react-router-dom";
-import AboutUniversity from './AboutUniversity';
+import { Link } from "react-router-dom";
 
 class Universities extends Component {
     constructor(props) {
@@ -22,7 +21,6 @@ class Universities extends Component {
     }
 
     render() {
-
         const { data } = this.state;
 
         return (
