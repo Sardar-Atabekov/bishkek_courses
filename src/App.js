@@ -7,6 +7,7 @@ import AboutUniversity from './components/AboutUniversity';
 import Courses from "./components/Courses";
 import Subcategories from './components/Subcategories';
 import AboutCourse from "./components/AboutCourse";
+import SearchField from "./components/SearchField";
 
 class App extends Component {
     render() {
@@ -21,6 +22,7 @@ class App extends Component {
                     <Route path="/subcategory/:id" component={AboutCourse} />
                     <Route path="/universities/" component={University} />
                     <Route path="/university/:id" component={AboutUniversity} />
+                    <Route path="/search" component={SearchField} />
                 </div>
             </BrowserRouter>
         )
