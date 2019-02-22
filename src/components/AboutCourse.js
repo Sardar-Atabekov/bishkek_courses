@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
-
+import './css/About.css';
+import Navigation from './Navigation';
 
 class AboutCourse extends Component {
     constructor(props) {
@@ -21,10 +22,16 @@ class AboutCourse extends Component {
         console.log(data);
         console.log(data.branches);
         return (
+        <div className="wrapper">
+                <div className="header">
+                    <Navigation/>
+                </div>
+
+                    <div className='course-content'>
             <main className="detailed">
                 <article className="about">
                     <div className="about-course">
-                        <img className="logo" src={data.logo_image_url} />
+                        <img className="logo_course" src={data.logo_image_url} />
                         <div className="course">
                             <h3 className="title">{data.title}</h3>
                             <div className="status">{data.status}</div>
@@ -45,6 +52,8 @@ class AboutCourse extends Component {
                     </div>
                 </article>
             </main>
+            </div>
+        </div>
         )
     }
 }

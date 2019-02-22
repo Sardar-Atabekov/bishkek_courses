@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './css/Content.css'
 import { Link } from "react-router-dom";
+import Navigation from './Navigation';
 
 class Universities extends Component {
     constructor(props) {
@@ -24,16 +25,19 @@ class Universities extends Component {
         const { data } = this.state;
 
         return (
-            <div id='container' className='main'>
-                {data.map(data  =>
-                    <div className="content" key={data.id}>
-                        <Link to={`/university/${data.id}/`}><img src={data.main_image_url} className="images" /></Link>
-                        <h3 className="title">{data.title}</h3>
-                        <div className="description_content">
-                            <p className="description">{data.description} </p>
+            <div>
+                <Navigation/>
+                <div id='container' className='main'>
+                    {data.map(data  =>
+                        <div className="content" key={data.id}>
+                            <Link to={`/university/${data.id}/`}><img src={data.main_image_url} className="images" /></Link>
+                            <h3 className="title">{data.title}</h3>
+                            <div className="description_content">
+                                <p className="description">{data.description} </p>
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         )
     }

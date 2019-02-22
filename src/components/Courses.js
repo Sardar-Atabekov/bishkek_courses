@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './css/Content.css'
+import './css/Content.css';
+import Navigation from './Navigation';
 
 class Courses extends Component {
     constructor(props) {
@@ -12,7 +13,6 @@ class Courses extends Component {
         };
     }
     componentDidMount() {
-        this.setState({ isLoading: true });
         const API = `http://46.101.146.101:8081/categories/${this.props.match.params.id}/`;
         fetch(API)
             .then(response => response.json())
@@ -24,6 +24,8 @@ class Courses extends Component {
 
         console.log(data);
         return (
+            <div>
+                <Navigation/>
             <div id='container' className='main' key={data.id}>
                 {data.map((data)  =>
                     <div className="content" key={data.id}>
@@ -34,6 +36,7 @@ class Courses extends Component {
                         </div>
                     </div>
                 )}
+            </div>
             </div>
         );
     }

@@ -14,6 +14,7 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Route path="/" component={Navigation} exact/>
+                    <Route path="/courses" component={Courses} exact/>
                     <Route path="/courses/:id" component={Courses} />
                     <Route path="/course/:id" component={AboutCourse} />
                     <Route path="/subcategories/:id" component={Subcategories} />
