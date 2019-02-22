@@ -9,6 +9,19 @@ html {
 ::selection {
     background: #6849A6;
 }
+.university {
+    color: #FFFFFF;
+    font-size: 18px;
+    align-content: center;
+    display: block;
+}
+.university:hover {
+    color: #FFFFFF;
+    background: #7F63B8;
+    height: 40px;
+    width: 256px;
+    font-size: 18px;
+}
 .menu {
      position: fixed;
      margin: 0;

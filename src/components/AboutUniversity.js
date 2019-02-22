@@ -23,7 +23,7 @@ class AboutUniversity extends Component {
         const { data } = this.state;
         console.log(data.contacts);
         return (
-            <div> ds</div>
+            <div> { data.title } </div>
 // {/*            <div className="wrapper">
 //                 <div className="detailed">
 //                     <div className="about">

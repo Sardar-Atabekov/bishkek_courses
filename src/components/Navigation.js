@@ -45,7 +45,7 @@ class Navigation extends Component {
                         );
                     })}
                 </Menu>
-                <Link to={'/universities'}>Universities</Link>
+                <Link to={'/universities'} className="university"><p >Universities</p></Link>
             </div>
         )
     }
