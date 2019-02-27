@@ -8,6 +8,8 @@ import Courses from "./components/Courses";
 import Subcategories from './components/Subcategories';
 import AboutCourse from "./components/AboutCourse";
 import SearchField from "./components/SearchField";
+import DetectedCourse from "./components/DetectedCourse";
+
 
 class App extends Component {
     render() {
@@ -23,6 +25,7 @@ class App extends Component {
                     <Route path="/universities/" component={University} />
                     <Route path="/university/:id" component={AboutUniversity} />
                     <Route path="/search" component={SearchField} />
+                    <Route path="/searchingCourses" component={DetectedCourse} />
                 </div>
             </BrowserRouter>
         )
