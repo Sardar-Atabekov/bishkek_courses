@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
 
  class SearchField extends Component {
-
      constructor(props) {
          super(props);
          this.state = {
-             courses: [
-             ]
+             data: [],
          };
-     }
+     };
 
      gettingCourse = async (event) => {
          event.preventDefault();
          const course = event.target.elements.course.value;
-         const API_URL = await
-             fetch(`http://46.101.146.101:8081/courses/search/?search=${course}`);
-         const data = await API_URL.json();
-         console.log(data);
-
+         const API_URL = await fetch(`http://46.101.146.101:8081/courses/search/?search=${course}`);
+         this.setState({data: await API_URL.json()});
      };
 
      render() {
@@ -29,10 +23,14 @@ import {Link} from "react-router-dom";
                      <button>Get course</button>
                  </form>
                  <div>
-                     {this.courses}
+                     {this.state.data.map((course)=> {
+                         return (
+                             <div key={course.id}>{course.title}</div>
+                         )
+                     })}
                  </div>
              </div>
          )
-     }
+     };
 }
  export default SearchField;
