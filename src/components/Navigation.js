@@ -26,10 +26,10 @@ class Navigation extends Component {
 
     render() {
         let {titles} = this.state;
-        console.log(titles);
+
         return (
             <div style={{ width: 256 }} className="menu">
-                <h1 className="logo">BishkekCourses</h1>
+                <Link to={'/home'}> <h1 className="logo">BishkekCourses</h1></Link>
                 <Menu mode="vertical" className="all-categories" style={{ width: 257,  background:6849}}>
                     {titles.map((one)=>{
                         return(
@@ -37,7 +37,7 @@ class Navigation extends Component {
                                 <MenuItemGroup style={{ width: 250}} className="sub-categories">
                                     {one.subcategories.map((sub)=>{
                                         return(
-                                            <Menu.Item className="sub-titles" key={sub.id}><Link to={{pathname: `/subcategories/${sub.id}/`}} key={sub.id} className="sub-title">{sub.title}</Link></Menu.Item>
+                                            <Menu.Item className="sub-titles" key={sub.id}><Link className="sub-title" to={{pathname: `/subcategories/${sub.id}/`}} key={sub.id} ><p className={'sub-title'}>{sub.title}</p></Link></Menu.Item>
                                         );
                                     })}
                                 </MenuItemGroup>
@@ -45,7 +45,7 @@ class Navigation extends Component {
                         );
                     })}
                 </Menu>
-                <Link to={'/universities'} className="university"><p >Universities</p></Link>
+                <ul className="university"><Link to={'/universities'} ><li className={'text'}>Universities</li></Link></ul>
             </div>
         )
     }

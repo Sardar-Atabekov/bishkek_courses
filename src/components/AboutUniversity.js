@@ -10,45 +10,48 @@ class AboutUniversity extends Component {
             data: [],
         };
     }
+    componentDidMount() {
+        const API = `http://46.101.146.101:8081/universities/${this.props.match.params.id}/`;
+        fetch(API)
+            .then(response => response.json())
+            .then(json => this.setState({data: json}))
+    }
+
     componentWillMount = async() => {
-        // this.setState({ isLoading: true });
         const API = await fetch(`http://46.101.146.101:8081/universities/${this.props.match.params.id}/`);
         const response = await API.json();
         this.setState({contacts: response.contacts})
-    }
+    };
 
     render() {
-        const data  = this.state.data;
+        const {data}  = this.state;
+        console.log(data);
         return (
-            <div className="wrapper">
-                <div className="header">
-                    <Navigation/>
-                </div>
-                <div className='course-content'>
-
-                    <div className="about">
+            <div>
+                <Navigation/>
+                <div className="detailed course-content">
+                    <article className="about">
                         <div className="about-course">
-                            <img src={data.logo_image_url} className="logo_course" alt={'univer'}/>
-                            <div className="course">
-                                <h3 className='title'>{data.title}</h3>
-                                <div className="status">Status</div>
-                                <div> Добавлен <span> </span> </div>
-                                <div> Обновлен <span> </span> </div>
-                                <div className="Contacts">
-                                    {this.state.contacts && this.state.contacts.map((contact) => {
-                                        return (
-                                            <div key={contact.type}>
-                                                <p>{contact.type}</p>
-                                                <p>{contact.contact}</p>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-
-                    </div>
+                            <img className="logo_course" src={data.logo_image_url} />
+                        </div>
+                        <div className="Contacts">
+                            {this.state.contacts && this.state.contacts.map((contact) => {
+                                return (
+                                    <div key={contact.type}>
+                                        <p>{contact.type}</p>
+                                        <p>{contact.contact}</p>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </article>
+                    <article className="description">
+                        <h3>Описания</h3>
+                        <div className="description-course">
+                            {data.description}
+                        </div>
+                    </article>
                 </div>
-            </div>
             </div>
         )
     }

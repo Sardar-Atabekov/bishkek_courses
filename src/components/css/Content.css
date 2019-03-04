@@ -1,5 +1,9 @@
 /*Content css*/
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
+body {
+    font-family: 'Roboto', sans-serif;
+}
 .main {
     float: right;
     width: 84%;
@@ -14,8 +18,7 @@
     grid-gap: 2vw;
     background: #BEBEBE;
     margin: 0px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 0 30px 30px 30px;
 }
 
 .content {
@@ -23,8 +26,6 @@
     background: #FFFFFF;
     padding-bottom: 5px;
     width: 100%;
-    font-family: Roboto;
-
 }
 .search {
     float: left;
@@ -52,7 +53,7 @@
     font-size: 0.9em;
     color: #868686;
     padding-left: 20px;
-    width: 75%;
+    width: 90%;
     height: 15%;
 }
 .description {

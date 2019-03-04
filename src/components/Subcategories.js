@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './css/Content.css';
 import Navigation from './Navigation';
+import SearchField from "./SearchField";
 
 class Subcategories extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
+            subcategory: [],
         };
     }
     componentDidMount() {
@@ -15,18 +16,19 @@ class Subcategories extends Component {
         const API = `http://46.101.146.101:8081/subcategories/${this.props.match.params.id}/`;
         fetch(API)
             .then(response => response.json())
-            .then(json => this.setState({data: json}))
+            .then(json => this.setState({subcategory: json}))
     }
 
     render() {
-        const { data } = this.state;
-        console.log(data);
+        const { subcategory } = this.state;
+        console.log(subcategory);
 
         return (
             <div>
                 <Navigation/>
-                <div id='container' className='main' key={data.id}>
-                {data.map((data)  =>
+                <SearchField/>
+                <div id='container' className='main' key={subcategory.id}>
+                    {subcategory.map((data)  =>
                         <div className="content" key={data.id}>
                             <Link to={`/subcategory/${data.id}`}> <img src={data.main_image_url} className="images" alt='course' /></Link>
                             <h3 className="title">{data.title}</h3>

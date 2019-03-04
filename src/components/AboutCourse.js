@@ -10,25 +10,25 @@ class AboutCourse extends Component {
             data: [],
         };
     }
+
     componentDidMount() {
         const API = `http://46.101.146.101:8081/courses/${this.props.match.params.id}/`;
         fetch(API)
             .then(response => response.json())
             .then(json => this.setState({data: json}))
     }
+    componentWillMount = async() => {
+        const API = await fetch(`http://46.101.146.101:8081/courses/${this.props.match.params.id}/`);
+        const response = await API.json();
+        this.setState({contacts: response.contacts})
+    };
     render() {
         const { data } = this.state;
-
         console.log(data);
-        console.log(data.branches);
         return (
-        <div className="wrapper">
-                <div className="header">
-                    <Navigation/>
-                </div>
-
-                    <div className='course-content'>
-            <main className="detailed">
+            <div>
+                <Navigation/>
+            <div className="detailed course-content">
                 <article className="about">
                     <div className="about-course">
                         <img className="logo_course" src={data.logo_image_url} />
@@ -40,9 +40,14 @@ class AboutCourse extends Component {
                         </div>
                     </div>
                     <div className="Contacts">
-                        <p className="tel"> Телофон <span> </span></p>
-                        <p  className="Facebook"> Facebook <span> </span></p>
-                        <p className="location"> Адрес <span> </span></p>
+                        {this.state.contacts && this.state.contacts.map((contact) => {
+                            return (
+                                <div key={contact.type}>
+                                    <p>{contact.type}</p>
+                                    <p>{contact.contact}</p>
+                                </div>
+                            );
+                        })}
                     </div>
                 </article>
                 <article className="description">
@@ -51,10 +56,9 @@ class AboutCourse extends Component {
                         {data.description}
                     </div>
                 </article>
-            </main>
             </div>
-        </div>
-        )
+            </div>
+        );
     }
 }
 export default AboutCourse;

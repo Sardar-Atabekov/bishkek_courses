@@ -6,21 +6,24 @@ body {
 html {
     -webkit-tap-highlight-color: #6849A6;
 }
-::selection {
-    background: #6849A6;
-}
 .university {
-    color: #FFFFFF;
+    background: #6849A6;
+    height: 40px;
     font-size: 18px;
-    align-content: center;
+    list-style-type: none;
+    text-decoration: none;
     display: block;
+    margin-left: -25px;
+}
+.text {
+    color: #FFFFFF;
 }
 .university:hover {
     color: #FFFFFF;
     background: #7F63B8;
     height: 40px;
-    width: 256px;
     font-size: 18px;
+
 }
 .menu {
      position: fixed;
@@ -83,13 +86,15 @@ html {
 }
 .ant-menu-submenu-arrow {
     display: none;
+    box-shadow: none;
 }
 .sub-title{
     font-size: 18px;
     color: #ffffff;
 }
-.ant-menu {
+.ant-menu-submenu .ant-menu-submenu-popup .ant-menu-light .titles .ant-menu-submenu-placement-rightTop .ant-menu-submenu-hidden .ant-menu-item-active{
     box-shadow: none;
+    border-radius: 16px;
 }
 
 .sub-titles:hover {

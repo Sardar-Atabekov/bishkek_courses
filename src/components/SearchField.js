@@ -1,48 +1,39 @@
 import React, { Component } from 'react';
-import "./css/SearchField.css";
+import {withRouter} from 'react-router-dom';
 import {Link} from "react-router-dom";
-import "./css/Content.css";
+import './css/SearchField.css';
 
- class SearchField extends Component {
-     constructor(props) {
-         super(props);
-         this.state = {
-             data: [],
-         };
-     };
+class SearchField extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: [],
+            courses: '',
+        };
 
-     gettingCourse = async (event) => {
-         event.preventDefault();
-         const course = event.target.elements.course.value;
-         const API_URL = await fetch(`http://46.101.146.101:8081/courses/search/?search=${course}`);
-         this.setState({data: await API_URL.json()});
-     };
+    }
 
-     render() {
-         return (
-             <div className="searching_form">
-                 <form onSubmit={this.gettingCourse}>
-                     <input type="text" name="course" placeholder="City"/>
-                     <button>Get course</button>
-                 </form>
-                 <div>
-                     <div id='container' className='main'>
-                     {this.state.data.map((course)=> {
-                         return (
-                                 <div className="content" key={course.id}>
-                                 <Link to={`/subcategory/${course.id}`}> <img src={course.main_image_url} className="images" alt='course' /></Link>
-                                 <h3 className="title">{course.title}</h3>
-                                 <div className="description_content">
-                                     <p className="description">{course.description} </p>
-                                 </div>
-                             </div>
-                         )
-                     })}
-                     </div>
-                 </div>
-             </div>
-         )
-     };
+    handleClick = (event) => {
+        const name = event.target.name;
+        this.setState({courses: event.target.value});
+    };
+
+    Click = () => {
+        this.props.history.push("/searched", this.state.courses);
+    }
+
+    render() {
+        console.log(this.state.courses);
+
+        return (
+            <div className={'search_block searching_form'}>
+                <form>
+                    <input className="search_input" placeholder="Поиск курса" onChange={this.handleClick}  value={this.state.courses}/>
+                    <button className="request-btn" onClick={this.Click}><Link className={'btn-text'} to={'/searched'}>Поиск</Link></button>
+                </form>
+                <h1 className="result-search">Курсы по запросу</h1>
+            </div>
+        )
+    }
 }
-
- export default SearchField;
+export default withRouter(SearchField);

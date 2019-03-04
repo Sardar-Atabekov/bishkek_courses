@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
-import './css/Content.css'
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import './css/Content.css';
 import Navigation from './Navigation';
 import SearchField from "./SearchField";
 
-class Universities extends Component {
+class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
             data: [],
-            isLoading: false,
-            error: null,
         };
     }
-
     componentDidMount() {
-        this.setState({ isLoading: true });
-        const API = `http://46.101.146.101:8081/universities/`;
+        const API = "http://46.101.146.101:8081/categories-subcategories/";
         fetch(API)
             .then(response => response.json())
             .then(json => this.setState({data: json}))
@@ -25,24 +21,30 @@ class Universities extends Component {
     render() {
         const { data } = this.state;
 
+        console.log(data);
         return (
             <div>
-                <Navigation/>
-                <SearchField/>
-                <div id='container' className='main'>
-                    {data.map(data  =>
+                <div>
+                    <Navigation/>
+                    <SearchField/>
+                </div>
+
+                <div id='container' className='main' key={data.id}>
+                    {data.map((data)  =>
                         <div className="content" key={data.id}>
-                            <Link to={`/university/${data.id}/`}><img src={data.main_image_url} className="images" /></Link>
+                            <Link to={{pathname: `/subcategories/${data.id}`, state: { courseId: data.id} }}>
+                                <img src={data.category_image_url} className="images" alt='course' />
+                                </Link>
                             <h3 className="title">{data.title}</h3>
                             <div className="description_content">
-                                <p className="description">{data.description} </p>
+                                <p className="description">{data.description}</p>
                             </div>
                         </div>
                     )}
                 </div>
             </div>
-        )
+        );
     }
 }
 
-export default Universities;
+export default Home;
