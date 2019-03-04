@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 import './css/About.css';
 import Navigation from './Navigation';
+import neobis from './css/logo/neobis_logo.png';
 
 class AboutCourse extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ class AboutCourse extends Component {
             <div>
                 <Navigation/>
                 <div className="logo_neobis-block">
-                    <img className="logo_neobis" src="./css/logo/neobis_logo.png" alt="neobis"/>
+                    <img className="logo_neobis" src={neobis} alt="neobis"/>
                 </div>
             <div className="detailed course-content">
                 <article className="about">

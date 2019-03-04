@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './css/Navigation.css';
 import 'antd/lib/menu/style/css';
 import { Menu } from 'antd';
+import rocket from './css/logo/rocket.png';
 
 const API = "http://46.101.146.101:8081/categories-subcategories/";
 const SubMenu = Menu.SubMenu;
@@ -29,7 +30,7 @@ class Navigation extends Component {
 
         return (
             <div style={{ width: 256 }} className="menu">
-                <Link to={'/home'}> <h1 className="logo"><img src="./css/logo/bc_logo.jpg" className="bc_logo"/>BishkekCourses</h1></Link>
+                <Link to={'/home'}> <h1 className="logo"><img src={rocket} className="bc_logo" />BishkekCourses</h1></Link>
                 <Menu mode="vertical" className="all-categories" style={{ width: 257,  background:6849}}>
                     {titles.map((one)=>{
                         return(

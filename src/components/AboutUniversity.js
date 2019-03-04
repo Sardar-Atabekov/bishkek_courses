@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Menu} from "antd/lib/menu";
 import Navigation from './Navigation';
 import './css/About.css';
+import neobis from './css/logo/neobis_logo.png';
 
 class AboutUniversity extends Component {
     constructor(props) {
@@ -30,7 +31,7 @@ class AboutUniversity extends Component {
             <div>
                 <Navigation/>
                 <div className="logo_neobis-block">
-                    <img className="logo_neobis" src="./css/logo/neobis_logo.png" alt="neobis"/>
+                    <img className="logo_neobis" src={neobis} alt="neobis"/>
                 </div>
                 <div className="detailed course-content">
                     <article className="about">

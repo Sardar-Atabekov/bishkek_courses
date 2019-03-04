@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './css/Content.css';
 import Navigation from './Navigation';
 import SearchField from "./SearchField";
+import neobis from './css/logo/neobis_logo.png';
 
 class Subcategories extends Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class Subcategories extends Component {
             <div>
                 <Navigation/>
                 <div className="logo_neobis-block">
-                    <img className="logo_neobis" src="./css/logo/neobis_logo.png" alt="neobis"/>
+                    <img className="logo_neobis" src={neobis} alt="neobis"/>
                 </div>
                 <SearchField/>
                 <div id='container' className='main' key={subcategory.id}>

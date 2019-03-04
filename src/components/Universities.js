@@ -3,6 +3,7 @@ import './css/Content.css'
 import { Link } from "react-router-dom";
 import Navigation from './Navigation';
 import SearchField from "./SearchField";
+import neobis from './css/logo/neobis_logo.png';
 
 class Universities extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ class Universities extends Component {
             <div>
                 <Navigation/>
                 <div className="logo_neobis-block">
-                    <img className="logo_neobis" src="./css/logo/neobis_logo.png" alt="neobis"/>
+                    <img className="logo_neobis" src={neobis} alt="neobis"/>
                 </div>
                 <SearchField/>
                 <div id='container' className='main'>

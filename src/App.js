@@ -10,7 +10,6 @@ import AboutCourse from "./components/AboutCourse";
 import DetectedCourse from "./components/DetectedCourse";
 import Home from "./components/Home";
 
-
 class App extends Component {
     render() {
         return (
@@ -19,7 +18,6 @@ class App extends Component {
                     <Route path="/" exact component={Navigation}/>
                     <Route path="/home" component={Home}/>
                     <Route path="/courses/:id" component={Courses} />
-                    <Route path="/course/:id" component={AboutCourse} />
                     <Route path="/subcategories/:id" component={Subcategories} />
                     <Route path="/subcategory/:id" component={AboutCourse} />
                     <Route path="/universities/" component={University} />
