@@ -26,6 +26,9 @@ class Subcategories extends Component {
         return (
             <div>
                 <Navigation/>
+                <div className="logo_neobis-block">
+                    <img className="logo_neobis" src="./css/logo/neobis_logo.png" alt="neobis"/>
+                </div>
                 <SearchField/>
                 <div id='container' className='main' key={subcategory.id}>
                     {subcategory.map((data)  =>

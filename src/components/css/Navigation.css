@@ -6,6 +6,10 @@ body {
 html {
     -webkit-tap-highlight-color: #6849A6;
 }
+.bc_logo {
+    width: 29px;
+    height: 29px;
+}
 .university {
     background: #6849A6;
     height: 40px;

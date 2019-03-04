@@ -58,7 +58,7 @@
 .Contacts {
     flex-basis: 50%;
     margin-bottom: 40px;
-    margin-top: 50px;
+    margin-top: 30px;
     padding-left: 30px;
     height: 100px;
 }
@@ -75,8 +75,17 @@
 
 .description-course {
     margin: 30px 0px 30px 30px;
+    padding: 20px 30px 20px 0px;
 }
-
+.logo_neobis-block {
+    height: 42px;
+}
+.logo_neobis {
+    width: 86px;
+    height: 28px;
+    float: right;
+    margin-right: 20px;
+}
 .main {
     flex-basis: 60%;
     background-color: white;

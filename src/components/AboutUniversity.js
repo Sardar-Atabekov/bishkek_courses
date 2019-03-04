@@ -29,6 +29,9 @@ class AboutUniversity extends Component {
         return (
             <div>
                 <Navigation/>
+                <div className="logo_neobis-block">
+                    <img className="logo_neobis" src="./css/logo/neobis_logo.png" alt="neobis"/>
+                </div>
                 <div className="detailed course-content">
                     <article className="about">
                         <div className="about-course">

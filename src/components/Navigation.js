@@ -29,7 +29,7 @@ class Navigation extends Component {
 
         return (
             <div style={{ width: 256 }} className="menu">
-                <Link to={'/home'}> <h1 className="logo">BishkekCourses</h1></Link>
+                <Link to={'/home'}> <h1 className="logo"><img src="./css/logo/bc_logo.jpg" className="bc_logo"/>BishkekCourses</h1></Link>
                 <Menu mode="vertical" className="all-categories" style={{ width: 257,  background:6849}}>
                     {titles.map((one)=>{
                         return(
@@ -45,7 +45,7 @@ class Navigation extends Component {
                         );
                     })}
                 </Menu>
-                <ul className="university"><Link to={'/universities'} ><li className={'text'}>Universities</li></Link></ul>
+                <ul className="university"><Link to={'/universities'} ><li className={'text'}>Университеты</li></Link></ul>
             </div>
         )
     }
