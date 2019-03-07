@@ -28,8 +28,8 @@ class SearchField extends Component {
         return (
             <div className={'search_block searching_form'}>
                 <form>
-                    <input className="search_input" placeholder="Поиск курса" onChange={this.handleClick}  value={this.state.courses}/>
-                    <button className="request-btn" onClick={this.Click}><Link className={'btn-text'} to={'/searched'}>Поиск</Link></button>
+                    <input className="search_input icon" placeholder="Поиск курса" onChange={this.handleClick}  value={this.state.courses}/>
+                    <button className="request-btn btn-text">Заявка</button>
                 </form>
                 <h1 className="result-search">Курсы по запросу</h1>
             </div>

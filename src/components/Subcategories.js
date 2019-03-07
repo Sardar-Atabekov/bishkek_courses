@@ -22,25 +22,26 @@ class Subcategories extends Component {
 
     render() {
         const { subcategory } = this.state;
-        console.log(subcategory);
 
         return (
             <div>
-                <Navigation/>
+                <Navigation className={"menu-block"}/>
                 <div className="logo_neobis-block">
                     <img className="logo_neobis" src={neobis} alt="neobis"/>
                 </div>
+                <div className="test">
                 <SearchField/>
-                <div id='container' className='main' key={subcategory.id}>
-                    {subcategory.map((data)  =>
-                        <div className="content" key={data.id}>
-                            <Link to={`/subcategory/${data.id}`}> <img src={data.main_image_url} className="images" alt='course' /></Link>
-                            <h3 className="title">{data.title}</h3>
-                            <div className="description_content">
-                                <p className="description">{data.description} </p>
+                    <div id='container' className='main' key={subcategory.id}>
+                        {subcategory.map((data)  =>
+                            <div className="content" key={data.id}>
+                                <Link to={`/subcategory/${data.id}`}> <img src={data.main_image_url} className="images" alt='course' /></Link>
+                                <h3 className="title">{data.title}</h3>
+                                <div className="description_content">
+                                    <p className="description">{data.description} </p>
+                                </div>
                             </div>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
             </div>
         );

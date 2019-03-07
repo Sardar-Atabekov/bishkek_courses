@@ -1,6 +1,11 @@
 .searching_form {
     float: right;
-    width: 84%;
+    width: 100%;
+}
+input .icon{
+    background: url(/src/components/css/logo/search.png) no-repeat center left;
+    height: 5px;
+    width: 5x;
 }
 .search_input {
     width: 252px;

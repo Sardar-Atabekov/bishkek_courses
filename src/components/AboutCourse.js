@@ -28,10 +28,11 @@ class AboutCourse extends Component {
         console.log(data);
         return (
             <div>
-                <Navigation/>
+                <Navigation className={"menu-block"}/>
                 <div className="logo_neobis-block">
                     <img className="logo_neobis" src={neobis} alt="neobis"/>
                 </div>
+                <div className="test">
             <div className="detailed course-content">
                 <article className="about">
                     <div className="about-course">
@@ -61,6 +62,7 @@ class AboutCourse extends Component {
                     </div>
                 </article>
             </div>
+                </div>
             </div>
         );
     }

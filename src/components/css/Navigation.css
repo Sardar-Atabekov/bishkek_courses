@@ -30,15 +30,15 @@ html {
 
 }
 .menu {
-     position: fixed;
-     margin: 0;
-     padding: 0;
-     height: 100%;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    height: 100%;
     background-color: #6849A6;
-     backdrop-filter: blur(4px);
-     display:block;
-     font-size: 18px;
- }
+    backdrop-filter: blur(4px);
+    font-size: 18px;
+    width: 20%;
+}
 
 .logo {
     color: #ffffff;
@@ -52,6 +52,7 @@ html {
     justify-content: center;
     margin-bottom: 60px;
 }
+
 .all-categories {
     color: #ffffff;
     background: #6849A6;
@@ -107,4 +108,3 @@ html {
     font-size: 18px;
     width: 100%;
 }
-
