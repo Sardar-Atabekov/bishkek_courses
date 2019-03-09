@@ -30,7 +30,7 @@ class Navigation extends Component {
 
         return (
             <div className="menu">
-                <Link to={'/home'}> <h1 className="logo"><img src={rocket} className="bc_logo" />BishkekCourses</h1></Link>
+                <Link to={'/'}> <h1 className="logo"><img src={rocket} className="bc_logo" />BishkekCourses</h1></Link>
                 <Menu mode="vertical" className="all-categories" style={{ background:6849}}>
                     {titles.map((one)=>{
                         return(
