@@ -20,6 +20,7 @@ class Courses extends Component {
             .then(response => response.json())
             .then(json => this.setState({data: json}))
     }
+
     componentDidUpdate(prevProps) {
         const API = `http://46.101.146.101:8081/categories/${this.props.match.params.id}/`;
         fetch(API)
